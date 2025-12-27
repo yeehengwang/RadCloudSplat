@@ -5,7 +5,7 @@
 
  <a href='https://arxiv.org/abs/2502.12686'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
-Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolatio, which has been accepted by **IEEE INFOCOM 2026**. 
+Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolation, which has been accepted by **IEEE INFOCOM 2026**. 
 
 
 ## Introduction
