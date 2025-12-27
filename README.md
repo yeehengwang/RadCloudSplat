@@ -1,7 +1,7 @@
 # RadCloudSplat
 <h3><a href="">RadCloudSplat: Scatterer-Driven 3D Gaussian Splatting with Point-Cloud Priors for Radiomap Extrapolation</a></h3>
 
-[Yiheng Wang](https://yeehengwang.github.io/), [Ye Xue](https://yokoxue.github.io/), [Shutao Zhang], [Hongmiao Fan] and [Tsung-Hui Chang](https://myweb.cuhk.edu.cn/changtsunghui/Home) 
+[Yiheng Wang](https://yeehengwang.github.io/), [Ye Xue](https://yokoxue.github.io/), Shutao Zhang, Hongmiao Fan and [Tsung-Hui Chang](https://myweb.cuhk.edu.cn/changtsunghui/Home) 
 
  <a href='https://arxiv.org/abs/2502.12686'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
@@ -25,13 +25,13 @@ Due to copyright issues regarding the measurement real data from wireless networ
 ## Training & Evaluation
 A small demo dataset in ./demo_data is included to help quickly verify the code, which can be executed using the following command:
 ```python
-python train.py
+python train_radcloudsplat.py
 ```
 More datasets can be found [here](https://github.com/XPengZhao/NeRF2?tab=readme-ov-file).<be>
 
 When you finish the training, you can inference the trained model by using the following command:
 ```python
-python train.py --mode test
+python train_radcloudsplat.py --mode test
 ```
 
 
@@ -39,7 +39,7 @@ python train.py --mode test
 
 ## Citation
 
-If you find our work useful in your research, please consider citing SILMM:
+If you find our work useful in your research, please consider citing RadCloudSplat:
 
 ```tex
 @article{wang2025radsplatter,
