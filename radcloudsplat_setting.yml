@@ -1,0 +1,42 @@
+
+### Path settings
+path:
+  expname: radcloudsplat
+  logdir: /data-test/user1/
+
+
+
+
+train:
+  lr: 5e-4
+  weight_decay: 5e-6
+  T_max: 10000
+  eta_min: 1e-6
+  batch_size: 256
+  total_iterations: 199990
+  load_ckpt: True
+  save_freq: 10000
+  val_freq: 2500
+  report_freq: 100
+
+
+newtrain:
+  position_lr_init: 0.005
+  position_lr_final: 0.00005
+  position_lr_delay_mult: 0.01
+  position_lr_max_steps: 30000
+  feature_lr: 0.0025
+  opacity_lr: 0.05
+  scaling_lr: 0.005
+  rotation_lr: 0.001
+  linear1: 0.001
+  linear2: 0.001
+  linear3: 0.001
+  T_lr: 0.01
+  phi_lr: 0.001
+  phi_o_lr: 0.001
+  bias_lr: 0.01
+
+
+
+
