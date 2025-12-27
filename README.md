@@ -5,10 +5,11 @@
 
  <a href='https://arxiv.org/abs/2502.12686'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
-Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolatio, which has been accepted by **IEEE INFOCOM 2026**. In this work, we first extended 3DGS to the radio frequency domain, leveraging **camera-free RadCloudSplat** to extrapolate RSSs with high accuracy from sparse measurements in an outdoor environment. By efficiently selecting the means of key virtual scatterers from dense point clouds aided by the **relaxed-mean (RM) scheme**, the model captured **intricate multi-path propagation characteristics**. Experiments and analysis validated the effectiveness of these scatterers, advancing the state-of-the-art in wireless network modeling and extrapolation performance and highlighting the transformative potential of integrating advanced 3D modeling techniques with wireless propagation analysis for next-generation applications in the radio domain.
+Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolatio, which has been accepted by **IEEE INFOCOM 2026**. 
 
 
 ## Introduction
+In this work, we first extended 3DGS to the radio frequency domain, leveraging **camera-free RadCloudSplat** to extrapolate RSSs with high accuracy from sparse measurements in an outdoor environment. By efficiently selecting the means of key virtual scatterers from dense point clouds aided by the **relaxed-mean (RM) scheme**, the model captured **intricate multi-path propagation characteristics**. Experiments and analysis validated the effectiveness of these scatterers, advancing the state-of-the-art in wireless network modeling and extrapolation performance and highlighting the transformative potential of integrating advanced 3D modeling techniques with wireless propagation analysis for next-generation applications in the radio domain.
 
 Schematic illustration of **RadCloudSplat**, comprising three major parts: 1) Relaxed-Mean Reparameterization for Key Virtual Scatters Positions Extraction. 2) Camera-Free RadCloudSplat Model for RSS Synthesis. 3) Optimizing RadCloudSplat Scheme
 
@@ -16,7 +17,7 @@ Schematic illustration of **RadCloudSplat**, comprising three major parts: 1) Re
 
 ## News
 Due to copyright issues regarding the measurement real data from wireless network, we are unable to provide the data used in the paper.
-## Release
+
 - [x] Release the demo dataset revised from NeRF2 datasets. 
 - [x] Release the training code. 
 - [x] Release the inference code. 
