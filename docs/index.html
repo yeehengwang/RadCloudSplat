@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RadCloudSplat: Scatterer-Driven 3D Gaussian Splatting with Point-Cloud Priors for Radiomap Extrapolation — IEEE INFOCOM 2026">
+<title>RadCloudSplat</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #222; background: #fff; line-height: 1.6;
+  }
+  a { color: #b31b1b; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 60px 24px; }
+
+  /* ── Hero ── */
+  .hero { text-align: center; margin-bottom: 64px; }
+  .badge { display: inline-block; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .affiliation { font-size: 13px; color: #999; margin-bottom: 24px; }
+  .hero h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+  .hero .subtitle { font-size: 17px; color: #444; max-width: 580px; margin: 0 auto 20px; line-height: 1.55; }
+  .hero .authors { font-size: 15px; color: #555; margin-bottom: 28px; }
+  .hero .buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 8px 22px; border-radius: 5px; font-size: 14px; font-weight: 500; transition: opacity 0.2s; }
+  .btn:hover { opacity: 0.88; text-decoration: none; }
+  .btn-arxiv { background: #b31b1b; color: #fff; }
+  .btn-github { background: #24292e; color: #fff; }
+
+  /* ── Section titles ── */
+  h2 { font-size: 22px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-bottom: 24px; }
+
+  /* ── Abstract ── */
+  .abstract h2 { text-align: center; }
+  .abstract p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 32px; text-align: justify; text-indent: 2em; }
+
+  /* ── Arch figure ── */
+  .figure { background: #f8f9fa; border-radius: 8px; padding: 28px; text-align: center; margin-bottom: 48px; }
+  .figure .caption { font-size: 13px; color: #888; margin-bottom: 10px; }
+  .figure img { max-width: 100%; border-radius: 4px; }
+
+  /* ── Pipeline flow ── */
+  .flow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; gap: 4px; flex-wrap: wrap; }
+  .flow-step { flex: 1; min-width: 90px; text-align: center; background: #f0f4f8; border-radius: 8px; padding: 18px 6px; }
+  .flow-step.final { background: #e8f5e9; border: 1px solid #c8e6c9; }
+  .flow-step .icon { font-size: 26px; margin-bottom: 6px; }
+  .flow-step .name { font-size: 12px; font-weight: 600; }
+  .flow-step .sub { font-size: 11px; color: #666; margin-top: 2px; }
+  .flow-arrow { color: #bbb; font-size: 20px; user-select: none; }
+
+  /* ── Steps ── */
+  .steps { margin-bottom: 40px; }
+  .step { background: #fafafa; border-radius: 6px; padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid #555; font-size: 14.5px; line-height: 1.65; color: #333; }
+
+  /* ── Citation ── */
+  .citation pre { background: #f5f5f5; border-radius: 6px; padding: 20px 24px; overflow-x: auto; font-size: 12px; line-height: 1.7; color: #333; margin-bottom: 24px; white-space: pre-wrap; font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Menlo, Courier, monospace; }
+  .ack { font-size: 13px; color: #777; line-height: 1.7; }
+
+  /* ── Footer ── */
+  footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 64px; padding-top: 24px; border-top: 1px solid #eee; }
+
+  @media (max-width: 640px) {
+    .container { padding: 36px 16px; }
+    .hero h1 { font-size: 28px; }
+    .flow { gap: 8px; }
+    .flow-arrow { display: none; }
+    .flow-step { min-width: 80px; padding: 12px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="badge">IEEE INFOCOM 2026 &middot; Accepted</div>
+    <div class="affiliation">The Chinese University of Hong Kong, Shenzhen</div>
+    <h1>RadCloudSplat</h1>
+    <p class="subtitle">Scatterer-Driven 3D Gaussian Splatting with Point-Cloud Priors for Radiomap Extrapolation</p>
+    <p class="authors">
+      Yiheng Wang &middot; Ye Xue &middot; Shutao Zhang &middot; Hongmiao Fan &middot; Tsung-Hui Chang
+    </p>
+    <div class="buttons">
+      <a class="btn btn-arxiv" href="https://arxiv.org/abs/2502.12686" target="_blank" rel="noopener">arXiv Paper</a>
+      <a class="btn btn-github" href="https://github.com/yeehengwang/RadCloudSplat" target="_blank" rel="noopener">GitHub Repo</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ ABSTRACT ═══════════ -->
+  <section class="abstract">
+    <h2>Abstract</h2>
+    <p>Radiomap represents the spatial distribution of wireless signal strength, critical for applications like network optimization and autonomous driving. However, constructing radiomap relies on measuring radio signal power across the entire system, which is costly in outdoor environments due to large network scales. We present RadSplatter, a framework that extends 3D Gaussian Splatting (3DGS) to radio frequencies for efficient and accurate radiomap extrapolation from sparse measurements. RadSplatter models environmental scatterers and radio paths using 3D Gaussians, capturing key factors of radio wave propagation. It employs a relaxed-mean (RM) scheme to reparameterize the positions of 3D Gaussians from noisy and dense 3D point clouds. A camera-free 3DGS-based projection is proposed to map 3D Gaussians onto 2D radio beam patterns. Furthermore, a regularized loss function and recursive fine-tuning using highly structured sparse measurements in real-world settings are applied to ensure robust generalization. Experiments on synthetic and real-world data show state-of-the-art extrapolation accuracy and execution speed.</p>
+
+    <div class="figure">
+      <div class="caption">Framework Overview</div>
+      <img src="assets/arch.png" alt="RadCloudSplat Architecture">
+    </div>
+  </section>
+
+  <!-- ═══════════ HOW IT WORKS ═══════════ -->
+  <h2>How It Works</h2>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="icon">☁️</div>
+      <div class="name">LiDAR Point Cloud</div>
+      <div class="sub">Environment sensing</div>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="icon">🎯</div>
+      <div class="name">RM Selection</div>
+      <div class="sub">Key scatterers</div>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="icon">📐</div>
+      <div class="name">Camera-Free Proj</div>
+      <div class="sub">Beamspace mapping</div>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="icon">⚡</div>
+      <div class="name">EM Splatting</div>
+      <div class="sub">Complex attenuation</div>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step final">
+      <div class="icon">📊</div>
+      <div class="name">RSS Radiomap</div>
+      <div class="sub">Beam-wise output</div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <strong>Step 1</strong> — A trainable selection matrix <strong>T</strong> and bias <strong>B</strong> reparameterize scatterer positions from dense, noisy LiDAR point clouds, selecting <em>N</em> key virtual scatterers while remaining differentiable for end-to-end optimization.
+    </div>
+    <div class="step">
+      <strong>Step 2</strong> — Camera-free projection maps 3D Gaussians onto the 2D beamspace via learned MLPs: one recovers beamspace means, another recovers precision (inverse covariance), and a third encodes distance-dependent complex attenuation with phase from the base station.
+    </div>
+    <div class="step">
+      <strong>Step 3</strong> — Gaussians are depth-sorted by distance to the target location, then electromagnetically splatted: RSS-encoded spherical harmonics modulate the view-dependent signal, while complex-valued opacity (amplitude &times; e<sup>j&middot;phase</sup>) is alpha-blended with cumulative transmittance.
+    </div>
+    <div class="step">
+      <strong>Step 4</strong> — The final beam-wise RSS is the squared magnitude of the accumulated coherent signal, trained under a composite loss combining MSE, total variation regularization, and structural penalties on T and B for robust extrapolation.
+    </div>
+  </div>
+
+  <!-- ═══════════ CITATION ═══════════ -->
+  <h2>Citation</h2>
+  <div class="citation">
+<pre>@article{wang2025radsplatter,
+  title     = {RadSplatter: Extending 3D Gaussian Splatting to Radio
+               Frequencies for Wireless Radiomap Extrapolation},
+  author    = {Wang, Yiheng and Xue, Ye and Zhang, Shutao
+               and Fan, Hongmiao and Chang, Tsung-Hui},
+  journal   = {arXiv preprint arXiv:2502.12686},
+  year      = {2025}
+}</pre>
+  </div>
+  <p class="ack">
+    This work was accepted by <strong>IEEE INFOCOM 2026</strong>.
+    We thank Dr. Xiaopeng Zhao and the authors of
+    <a href="https://github.com/XPengZhao/NeRF2" target="_blank" rel="noopener">NeRF²</a>
+    for making their code and dataset available.
+  </p>
+
+  <footer>
+    RadCloudSplat &copy; 2025 &middot; The Chinese University of Hong Kong, Shenzhen
+  </footer>
+
+</div>
+</body>
+</html>
