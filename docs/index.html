@@ -54,7 +54,17 @@
   .steps { margin-bottom: 40px; }
   .step { background: #fafafa; border-radius: 6px; padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid #555; font-size: 14.5px; line-height: 1.65; color: #333; }
 
-  /* ── Citation ── */
+  /* ── Tables ── */
+  .results { margin-bottom: 40px; }
+  .results h3 { font-size: 15px; margin-bottom: 12px; color: #444; }
+  .results table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px; }
+  .results th, .results td { padding: 10px 14px; text-align: center; border-bottom: 1px solid #e8e8e8; }
+  .results th { background: #f5f5f5; font-weight: 600; font-size: 13px; color: #555; }
+  .results tbody tr:hover { background: #fafafa; }
+  .results .best { font-weight: 700; color: #b31b1b; }
+
+  /* ── Conclusion ── */
+  .conclusion p { font-size: 15px; line-height: 1.8; color: #333; text-align: justify; text-indent: 2em; }
   .citation pre { background: #f5f5f5; border-radius: 6px; padding: 20px 24px; overflow-x: auto; font-size: 12px; line-height: 1.7; color: #333; margin-bottom: 24px; white-space: pre-wrap; font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Menlo, Courier, monospace; }
   .ack { font-size: 13px; color: #777; line-height: 1.7; }
 
@@ -150,7 +160,54 @@
     </div>
   </div>
 
-  <!-- ═══════════ CITATION ═══════════ -->
+  <!-- ═══════════ RESULTS ═══════════ -->
+  <h2>Results</h2>
+  <div class="results">
+    <h3>Synthetic Dataset (Shanghai City)</h3>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>MAE (dB) ↓</th><th>Inference Time (s)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Kriging</td><td>11.307</td><td>0.010</td></tr>
+        <tr><td>VAE</td><td>10.306</td><td>0.007</td></tr>
+        <tr><td>NeRF²</td><td>9.867</td><td>0.020</td></tr>
+        <tr><td class="best">RadSplatter (ours)</td><td class="best">7.564</td><td class="best">0.004</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Ablation Study</h3>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>MAE (dB) ↓</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="best">RadSplatter (full)</td><td class="best">7.564</td></tr>
+        <tr><td>Random-Points-Opt</td><td>8.167</td></tr>
+        <tr><td>Random-Initial-Opt</td><td>10.463</td></tr>
+        <tr><td>Random-Initial-Fixed</td><td>53.234</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Real-world Dataset (Hangzhou City)</h3>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>MAE (dB) ↓</th><th>Inference Time (s)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Kriging</td><td>9.656</td><td>0.183</td></tr>
+        <tr><td>VAE</td><td>8.728</td><td>0.011</td></tr>
+        <tr><td>NeRF²</td><td>7.313</td><td>0.585</td></tr>
+        <tr><td class="best">RadSplatter (ours)</td><td class="best">7.035</td><td class="best">0.018</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════ CONCLUSION ═══════════ -->
+  <h2>Conclusion</h2>
+  <div class="conclusion">
+    <p>In this work, we first extended 3DGS to the radio frequency domain, leveraging camera-free RadSplatter to extrapolate RSSs with high accuracy from sparse measurements in outdoor environments. By efficiently selecting the means of key virtual scatterers from dense point clouds aided by the RM parameterization model, the model captured intricate multi-path propagation characteristics. Experiments and analysis validated the effectiveness of these scatterers, advancing the state-of-the-art in wireless network modeling and extrapolation performance and highlighting the transformative potential of integrating advanced 3D modeling techniques with wireless propagation analysis for next-generation applications in the radio domain.</p>
+  </div>
   <h2>Citation</h2>
   <div class="citation">
 <pre>@article{wang2025radsplatter,
