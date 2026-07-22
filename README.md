@@ -44,11 +44,13 @@ python train_radcloudsplat.py --mode test
 If you find our work useful in your research, please consider citing RadCloudSplat:
 
 ```tex
-@article{wang2025radsplatter,
-  title={RadSplatter: Extending 3D Gaussian Splatting to Radio Frequencies for Wireless Radiomap Extrapolation},
-  author={Wang, Yiheng and Xue, Ye and Zhang, Shutao and Chang, Tsung-Hui},
-  journal={arXiv preprint arXiv:2502.12686},
-  year={2025}
+@inproceedings{wang2026radcloudsplat,
+  title={RadCloudSplat: Scatterer-Driven 3D Gaussian Splatting with Point-Cloud Priors for Radiomap Extrapolation},
+  author={Wang, Yiheng and Xue, Ye and Zhang, Shutao and Fan, Hongmiao and Chang, Tsung-Hui},
+  booktitle={IEEE INFOCOM 2026-IEEE Conference on Computer Communications},
+  pages={1--10},
+  year={2026},
+  organization={IEEE}
 }
 ```
 
