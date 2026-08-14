@@ -10,6 +10,7 @@
 
 Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolation, which has been accepted by **IEEE INFOCOM 2026**. 
 
+More information can be refered to:
 - **Paper:** [arXiv](https://arxiv.org/abs/2502.12686)
 - **Published version:** [IEEE Xplore](https://ieeexplore.ieee.org/document/11571385)
 - **Code:** This repository
