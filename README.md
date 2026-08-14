@@ -1,4 +1,6 @@
 # RadCloudSplat
+
+**Official implementation** of:
 <h3><a href="">RadCloudSplat: Scatterer-Driven 3D Gaussian Splatting with Point-Cloud Priors for Radiomap Extrapolation</a></h3>
 
 [Yiheng Wang](https://yeehengwang.github.io/), [Ye Xue](https://yokoxue.github.io/), Shutao Zhang, Hongmiao Fan and [Tsung-Hui Chang](https://myweb.cuhk.edu.cn/changtsunghui/Home) 
@@ -7,6 +9,12 @@
  <a href='https://yeehengwang.github.io/RadCloudSplat/'><img src='https://img.shields.io/badge/Project-Page-blue'></a>
 
 Thanks for your interest in our work. This repository contains code and links to the **RadCloudSplat** method for radiomap extrapolation, which has been accepted by **IEEE INFOCOM 2026**. 
+
+- **Paper:** [arXiv](https://arxiv.org/abs/2502.12686)
+- **Published version:** [IEEE Xplore](https://ieeexplore.ieee.org/document/11571385)
+- **Code:** This repository
+- **Project page:** [Project Page](https://yeehengwang.github.io/RadCloudSplat/)
+- **License:** MIT
 
 
 ## Introduction
